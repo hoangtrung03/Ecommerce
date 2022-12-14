@@ -9,6 +9,8 @@ interface Props {
   register: UseFormRegister<any>
   rules?: RegisterOptions
   autoComplete?: string
+  classNameIcon?: string
+  iconUrl?: string
 }
 
 export default function Input({
@@ -17,20 +19,31 @@ export default function Input({
   placeholder,
   className,
   autoComplete,
+  classNameIcon,
+  iconUrl,
   name,
   register,
   rules
 }: Props) {
   return (
-    <div className={className}>
-      <input
-        type={type}
-        className='w-full rounded-sm border border-gray-300 p-3 outline-none focus:border-gray-500 focus:shadow-sm'
-        placeholder={placeholder}
-        autoComplete={autoComplete}
-        {...register(name, rules)}
-      />
+    <>
+      <div className={className}>
+        <input
+          type={type}
+          className='w-full rounded-sm border border-gray-300 p-3 outline-none focus:border-gray-500 focus:shadow-sm'
+          placeholder={placeholder}
+          autoComplete={autoComplete}
+          {...register(name, rules)}
+        />
+        {classNameIcon ? (
+          <div className={classNameIcon}>
+            <img src={iconUrl} alt='icon' title='icon' />
+          </div>
+        ) : (
+          ''
+        )}
+      </div>
       <div className='mt-1 min-h-[1.25rem] text-sm text-red-600'>{errorMessage}</div>
-    </div>
+    </>
   )
 }

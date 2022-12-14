@@ -16,6 +16,7 @@ module.exports = {
         'primary-7644E1': '#7644E1',
         'primary-FFB700': '#FFB700',
         'primary-1A162E': '#1A162E',
+        'primary-377DFF': '#377DFF',
         'secondary-77DAE6': '#77DAE6',
         'secondary-1A162E': '#1A162E',
         'secondary-9E9DA8': '#9E9DA8',
@@ -34,7 +35,7 @@ module.exports = {
       }
     },
     fontFamily: {
-      'brave-ecom': 'Source Sans Pro, Arial, sans-serif'
+      'ecom': 'Source Sans Pro, Arial, sans-serif'
     }
   },
   plugins: [
@@ -46,6 +47,10 @@ module.exports = {
           marginRight: 'auto',
           paddingLeft: theme('spacing.4'),
           paddingRight: theme('spacing.4')
+        },
+        '.fs-32': {
+          fontSize: '32px',
+          lineHeight: '46px'
         },
         '.fs-26': {
           fontSize: '26px',

@@ -60,12 +60,12 @@ export default function Login() {
   })
 
   return (
-    <div className='bg-primary-F94545'>
+    <div className='bg-white'>
       <div className='container'>
-        <div className='lg:grids-cols-5 grid grid-cols-1 py-12 lg:py-32 lg:pr-10'>
-          <div className='lg:col-span-2 lg:col-start-4'>
-            <form onSubmit={onSubmit} className='rounded bg-white p-10 shadow-sm lg:min-w-[500px]' noValidate>
-              <div className='text-2xl'>Đăng Nhập</div>
+        <div className='lg:grids-cols-5 grid grid-cols-1 py-12 lg:py-32'>
+          <div className='mx-auto'>
+            <form onSubmit={onSubmit} className='rounded bg-white p-10 shadow-xl lg:min-w-[500px]' noValidate>
+              <div className='fs-32 text-center font-bold text-gray-600'>Đăng Nhập</div>
               <Input
                 className='mt-8'
                 type='email'
@@ -75,18 +75,20 @@ export default function Login() {
                 errorMessage={errors.email?.message}
               />
               <Input
-                className='mt-2'
+                className='relative mt-2'
                 type='password'
                 name='password'
                 placeholder='Password'
                 autoComplete='on'
                 register={register}
+                classNameIcon='absolute inset-y-0 right-4 flex items-center'
+                iconUrl='/src/assets/Eye.svg'
                 errorMessage={errors.password?.message}
               />
               <div className='mt-3'>
                 <Button
                   type='submit'
-                  className='flex w-full items-center justify-center bg-red-500 py-4 px-2 text-center text-sm uppercase text-white hover:bg-red-600'
+                  className='flex w-full items-center justify-center bg-blue-500 py-4 px-2 text-center text-sm uppercase text-white hover:bg-blue-600'
                   isLoading={loginAccountMutation.isLoading}
                   disabled={loginAccountMutation.isLoading}
                 >
@@ -94,8 +96,8 @@ export default function Login() {
                 </Button>
               </div>
               <div className='mt-8 flex items-center justify-center'>
-                <span className='text-gray-300'>Bạn chưa có tài khoản?</span>
-                <Link className='ml-1 text-red-400' to={paths.register}>
+                <span className='text-gray-400'>Bạn chưa có tài khoản?</span>
+                <Link className='ml-1 text-blue-400 hover:text-blue-600 font-medium' to={paths.register}>
                   Đăng ký
                 </Link>
               </div>

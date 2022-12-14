@@ -59,12 +59,12 @@ export default function Register() {
   })
 
   return (
-    <div className='bg-primary-F94545'>
+    <div className='bg-white'>
       <div className='container'>
-        <div className='lg:grids-cols-5 grid grid-cols-1 py-12 lg:py-32 lg:pr-10'>
-          <div className='lg:col-span-2 lg:col-start-4'>
-            <form onSubmit={onSubmit} noValidate className='rounded bg-white p-10 shadow-sm lg:min-w-[500px]'>
-              <div className='text-2xl'>Đăng Ký</div>
+        <div className='lg:grids-cols-5 grid grid-cols-1 py-12 lg:py-32'>
+          <div className='mx-auto'>
+            <form onSubmit={onSubmit} noValidate className='rounded bg-white p-10 shadow-xl lg:min-w-[500px]'>
+              <div className='fs-32 text-center font-bold text-gray-600'>Đăng Ký</div>
               <Input
                 className='mt-8'
                 type='email'
@@ -93,7 +93,7 @@ export default function Register() {
               />
               <div className='mt-2'>
                 <Button
-                  className='flex w-full items-center justify-center bg-red-500 py-4 px-2 text-center text-sm uppercase text-white hover:bg-red-600'
+                  className='flex w-full items-center justify-center bg-blue-500 py-4 px-2 text-center text-sm uppercase text-white hover:bg-blue-600  font-medium'
                   isLoading={registerAccountMutation.isLoading}
                   disabled={registerAccountMutation.isLoading}
                 >
@@ -101,8 +101,8 @@ export default function Register() {
                 </Button>
               </div>
               <div className='mt-8 flex items-center justify-center'>
-                <span className='text-gray-300'>Bạn đã có tài khoản?</span>
-                <Link className='ml-1 text-red-400' to={paths.login}>
+                <span className='text-gray-400'>Bạn đã có tài khoản?</span>
+                <Link className='ml-1 text-blue-400 hover:text-blue-600' to={paths.login}>
                   Đăng nhập
                 </Link>
               </div>
