@@ -38,7 +38,7 @@ export default function Header() {
     } else if (localStorage.getItem('lng') === 'vi') {
       setLanguage('Tiếng Việt')
     }
-  }, [language])
+  }, [langs])
 
   return (
     <header className='bg-EEEEEE pb-5 pt-2'>
