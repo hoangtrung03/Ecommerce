@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 interface ProductCardProps {
@@ -5,6 +6,7 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = () => {
+  const { t } = useTranslation()
   return (
     <>
       <div className='-mx-3 grid grid-cols-12 gap-y-3'>
@@ -88,7 +90,7 @@ const ProductCard: React.FC<ProductCardProps> = () => {
                   to=''
                   className='rounded-md bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
                 >
-                  Add to cart
+                  {t('button.addtocart')}
                 </Link>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
 
@@ -8,10 +8,15 @@ import { LogoutAccount } from 'src/apis/auth.api'
 import Popover from 'src/components/Popover'
 import paths from 'src/constants/paths'
 import Brand from '../Brand'
-
+import { useTranslation } from 'react-i18next'
 export default function Header() {
   const { setIsAuthenticated, isAuthenticated, setUserProfile, userProfile } = useContext(AppContext)
-
+  const { t, i18n } = useTranslation()
+  const [language, setLanguage] = useState('EngLish')
+  const langs = {
+    en: { nativeName: 'English' },
+    vi: { nativeName: 'Tiếng Việt' }
+  }
   const logoutMutation = useMutation({
     mutationFn: LogoutAccount,
     onSuccess: () => {
@@ -23,6 +28,17 @@ export default function Header() {
   const handleLogout = () => {
     logoutMutation.mutate()
   }
+  const handleChangeLang = (lang: string) => {
+    i18n.changeLanguage(lang)
+    localStorage.setItem('lng', lang)
+  }
+  useEffect(() => {
+    if (localStorage.getItem('lng') === 'en') {
+      setLanguage('English')
+    } else if (localStorage.getItem('lng') === 'vi') {
+      setLanguage('Tiếng Việt')
+    }
+  }, [language])
 
   return (
     <header className='bg-EEEEEE pb-5 pt-2'>
@@ -32,11 +48,17 @@ export default function Header() {
             className='flex cursor-pointer items-center'
             renderPopover={
               <div className='flex flex-col rounded-16 bg-white p-3 shadow-lg'>
-                <button className='fs-16 rounded-8 py-3 px-6 text-secondary-1A162E transition-colors hover:bg-secondary-F8F8FB/60 hover:text-secondary-77DAE6'>
-                  Tiếng Việt
+                <button
+                  className='fs-16 mt-1 rounded-8 py-3 px-6 text-secondary-1A162E transition-colors hover:bg-secondary-F8F8FB/60 hover:text-secondary-77DAE6'
+                  onClick={() => handleChangeLang('en')}
+                >
+                  {langs.en.nativeName}
                 </button>
-                <button className='fs-16 mt-1 rounded-8 py-3 px-6 text-secondary-1A162E transition-colors hover:bg-secondary-F8F8FB/60 hover:text-secondary-77DAE6'>
-                  Tiếng Anh
+                <button
+                  className='fs-16 rounded-8 py-3 px-6 text-secondary-1A162E transition-colors hover:bg-secondary-F8F8FB/60 hover:text-secondary-77DAE6'
+                  onClick={() => handleChangeLang('vi')}
+                >
+                  {langs.vi.nativeName}
                 </button>
               </div>
             }
@@ -49,7 +71,7 @@ export default function Header() {
               height={24}
             />
             <span className='fs-16 mx-1 text-secondary-1A162E transition-colors hover:text-secondary-1A162E/70'>
-              Tiếng Việt
+              {language}
             </span>
             <img src='src/assets/icon-arrow-down-light.svg' alt='See More' title='See More' width={20} height={20} />
           </Popover>
@@ -74,7 +96,7 @@ export default function Header() {
                     onClick={handleLogout}
                     className='fs-16 rounded-8 py-3 px-6 text-left text-secondary-1A162E transition-colors hover:bg-secondary-F8F8FB/60 hover:text-secondary-77DAE6'
                   >
-                    Đăng xuất
+                    {t('button.logout')}
                   </button>
                 </div>
               }
@@ -93,14 +115,14 @@ export default function Header() {
                 to={paths.register}
                 className='fs-16 mx-3 capitalize text-secondary-1A162E transition-colors hover:text-secondary-1A162E/70'
               >
-                Đăng kí
+                {t('register.title')}
               </Link>
               <div className='h-4 border-r-[1px] border-r-secondary-1A162E'></div>
               <Link
                 to={paths.login}
                 className='fs-16 mx-3 capitalize text-secondary-1A162E transition-colors hover:text-secondary-1A162E/70'
               >
-                Đăng nhập
+                {t('login.title')}
               </Link>
             </div>
           )}
@@ -115,7 +137,7 @@ export default function Header() {
               <input
                 type='text'
                 name='search'
-                placeholder='Free ship đơn từ 0 đồng..'
+                placeholder={t('button.search') + '...'}
                 className='flex-grow border-none bg-transparent text-secondary-1A162E outline-none placeholder:fs-14 placeholder:text-secondary-1A162E/70'
               />
               <button className='flex-shrink-0 rounded-8'>

@@ -1,0 +1,21 @@
+{
+  "login": {
+    "title": "Đăng nhập",
+    "email": "Email",
+    "password": "Mật khẩu"
+  },
+  "register": {
+    "title": "Đăng ký",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "confirmpassword": "Nhập lại mật khẩu",
+    "existaccount": "Bạn đã có tài khoản?"
+  },
+  "button": {
+    "addtocart": "Thêm vào giỏ hàng",
+    "signin": "Đăng nhập",
+    "search": "Tìm kiếm",
+    "logout": "Đăng xuất"
+  }
+  
+}

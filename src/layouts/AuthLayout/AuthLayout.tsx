@@ -1,8 +1,7 @@
 import { Fragment } from 'react'
 
 import Footer from 'src/components/Footer'
-import AuthHeader from 'src/components/AuthHeader'
-
+import Header from 'src/components/Header'
 interface Props {
   children?: React.ReactNode
 }
@@ -10,7 +9,7 @@ interface Props {
 export default function AuthLayout({ children }: Props) {
   return (
     <Fragment>
-      <AuthHeader />
+      <Header />
       <main> {children} </main>
       <Footer />
     </Fragment>

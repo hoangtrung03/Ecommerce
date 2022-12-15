@@ -14,10 +14,12 @@ import { RegisterAccount } from 'src/apis/auth.api'
 import Input from 'src/components/Input'
 import Button from 'src/components/Button'
 import paths from 'src/constants/paths'
+import { useTranslation } from 'react-i18next'
 
 type FormData = Schema
 
 export default function Register() {
+  const { t } = useTranslation()
   const { setIsAuthenticated, setUserProfile } = useContext(AppContext)
   const navigate = useNavigate()
 
@@ -64,12 +66,12 @@ export default function Register() {
         <div className='lg:grids-cols-5 grid grid-cols-1 py-12 lg:py-32'>
           <div className='mx-auto'>
             <form onSubmit={onSubmit} noValidate className='rounded bg-white p-10 shadow-xl lg:min-w-[500px]'>
-              <div className='fs-32 text-center font-bold text-gray-600'>Đăng Ký</div>
+              <div className='fs-32 text-center font-bold text-gray-600'>{t('register.title')}</div>
               <Input
                 className='mt-8'
                 type='email'
                 name='email'
-                placeholder='Email'
+                placeholder={t('register.email') || undefined}
                 register={register}
                 errorMessage={errors.email?.message}
               />
@@ -77,7 +79,7 @@ export default function Register() {
                 className='mt-2'
                 type='password'
                 name='password'
-                placeholder='Password'
+                placeholder={t('register.password') || undefined}
                 autoComplete='on'
                 register={register}
                 errorMessage={errors.password?.message}
@@ -86,7 +88,7 @@ export default function Register() {
                 className='mt-2'
                 type='password'
                 name='confirm_password'
-                placeholder='Confirm Password'
+                placeholder={t('register.confirmpassword') || undefined}
                 autoComplete='on'
                 register={register}
                 errorMessage={errors.confirm_password?.message}
@@ -97,13 +99,13 @@ export default function Register() {
                   isLoading={registerAccountMutation.isLoading}
                   disabled={registerAccountMutation.isLoading}
                 >
-                  Đăng Ký
+                  {t('register.title')}
                 </Button>
               </div>
               <div className='mt-8 flex items-center justify-center'>
-                <span className='text-gray-400'>Bạn đã có tài khoản?</span>
+                <span className='text-gray-400'>{t('register.existaccount')}</span>
                 <Link className='ml-1 text-blue-400 hover:text-blue-600' to={paths.login}>
-                  Đăng nhập
+                  {t('login.title')}
                 </Link>
               </div>
             </form>

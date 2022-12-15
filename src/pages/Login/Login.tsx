@@ -14,15 +14,15 @@ import { AppContext } from 'src/contexts/app.context'
 import Input from 'src/components/Input'
 import Button from 'src/components/Button'
 import paths from 'src/constants/paths'
-
+import { useTranslation } from 'react-i18next'
 type FormData = Omit<Schema, 'confirm_password'>
 
 const LoginSchema = schema.omit(['confirm_password'])
 
 export default function Login() {
+  const { t } = useTranslation()
   const { setIsAuthenticated, setUserProfile } = useContext(AppContext)
   const navigate = useNavigate()
-
   const {
     register,
     handleSubmit,
@@ -65,12 +65,12 @@ export default function Login() {
         <div className='lg:grids-cols-5 grid grid-cols-1 py-12 lg:py-32'>
           <div className='mx-auto'>
             <form onSubmit={onSubmit} className='rounded bg-white p-10 shadow-xl lg:min-w-[500px]' noValidate>
-              <div className='fs-32 text-center font-bold text-gray-600'>Đăng Nhập</div>
+              <div className='fs-32 text-center font-bold text-gray-600'>{t('login.title')}</div>
               <Input
                 className='mt-8'
                 type='email'
                 name='email'
-                placeholder='Email'
+                placeholder={t('login.email') || undefined}
                 register={register}
                 errorMessage={errors.email?.message}
               />
@@ -78,7 +78,7 @@ export default function Login() {
                 className='relative mt-2'
                 type='password'
                 name='password'
-                placeholder='Password'
+                placeholder={t('login.password') || undefined}
                 autoComplete='on'
                 register={register}
                 classNameIcon='absolute inset-y-0 right-4 flex items-center'
@@ -92,13 +92,13 @@ export default function Login() {
                   isLoading={loginAccountMutation.isLoading}
                   disabled={loginAccountMutation.isLoading}
                 >
-                  Đăng Nhập
+                  {t('button.signin')}
                 </Button>
               </div>
               <div className='mt-8 flex items-center justify-center'>
                 <span className='text-gray-400'>Bạn chưa có tài khoản?</span>
                 <Link className='ml-1 font-medium text-blue-400 hover:text-blue-600' to={paths.register}>
-                  Đăng ký
+                  {t('register.title')}
                 </Link>
               </div>
             </form>

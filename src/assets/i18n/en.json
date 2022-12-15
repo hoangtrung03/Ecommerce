@@ -1,0 +1,20 @@
+{
+  "login": {
+    "title": "Login",
+    "email": "Email",
+    "password": "Password"
+  },
+  "register": {
+    "title": "Register",
+    "email": "Email",
+    "password": "Password",
+    "confirmpassword": "Confirm Password",
+    "existaccount": "Do you already have an account?"
+  },
+  "button": {
+    "addtocart": "Add to cart",
+    "signin": "Sign In",
+    "search": "Search",
+    "logout": "Logout"
+  }
+}
