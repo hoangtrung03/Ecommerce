@@ -93,7 +93,7 @@ export default function Register() {
               />
               <div className='mt-2'>
                 <Button
-                  className='flex w-full items-center justify-center bg-blue-500 py-4 px-2 text-center text-sm uppercase text-white hover:bg-blue-600  font-medium'
+                  className='flex w-full items-center justify-center bg-blue-500 py-4 px-2 text-center text-sm font-medium uppercase text-white  hover:bg-blue-600'
                   isLoading={registerAccountMutation.isLoading}
                   disabled={registerAccountMutation.isLoading}
                 >
