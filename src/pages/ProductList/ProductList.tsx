@@ -1,3 +1,9 @@
+import ProductCard from 'src/components/ProductCard'
+
 export default function ProductList() {
-  return <div>ProductList</div>
+  return (
+    <div>
+      <ProductCard />
+    </div>
+  )
 }
