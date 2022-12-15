@@ -83,6 +83,9 @@ module.exports = {
         '.fs-9': {
           fontSize: '9px',
           lineHeight: '14px'
+        },
+        '.box-shadow-lg': {
+          boxShadow: 'rgb(0 0 0 / 30%) 0px 0px 15px'
         }
       })
     })
