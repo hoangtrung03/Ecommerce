@@ -10,7 +10,7 @@ const ProductCard: React.FC<ProductCardProps> = () => {
   return (
     <>
       <div className='-mx-3 grid grid-cols-12 gap-y-3'>
-        <div className='col-span-3 px-3'>
+        <div className='col-span-full mx-auto px-3 md:col-span-6 lg:col-span-3'>
           <div className='w-full max-w-sm rounded-lg bg-white shadow-md duration-200 hover:box-shadow-lg dark:border-gray-700 dark:bg-gray-800'>
             <Link to='/login' title='iPhone 13 128GB | Chính hãng VN/A'>
               <img
@@ -81,7 +81,7 @@ const ProductCard: React.FC<ProductCardProps> = () => {
                   5.0
                 </span>
               </div>
-              <div className='flex items-center justify-between'>
+              <div className='flex items-end justify-between'>
                 <div className='flex flex-col'>
                   <span className='text-lg font-semibold text-gray-400 line-through dark:text-white'>24.990.000 ₫</span>
                   <span className='text-xl font-bold text-red-500 dark:text-white'>19.190.000 ₫</span>
