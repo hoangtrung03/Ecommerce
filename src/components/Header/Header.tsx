@@ -41,7 +41,7 @@ export default function Header() {
   }, [langs])
 
   return (
-    <header className='bg-EEEEEE pb-5 pt-2'>
+    <header className='hidden bg-EEEEEE pb-5 pt-2 md:block'>
       <div className='container'>
         <div className='flex justify-end'>
           <Popover

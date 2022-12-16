@@ -65,7 +65,7 @@ export default function Register() {
       <div className='container'>
         <div className='lg:grids-cols-5 grid grid-cols-1 py-12 lg:py-32'>
           <div className='mx-auto'>
-            <form onSubmit={onSubmit} noValidate className='rounded bg-white p-10 shadow-xl lg:min-w-[500px]'>
+            <form onSubmit={onSubmit} noValidate className='box-shadow-lg rounded bg-white p-10 lg:min-w-[500px]'>
               <div className='fs-32 text-center font-bold text-gray-600'>{t('register.title')}</div>
               <Input
                 className='mt-8'

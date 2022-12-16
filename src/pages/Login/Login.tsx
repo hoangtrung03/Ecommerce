@@ -37,6 +37,8 @@ export default function Login() {
   })
 
   const onSubmit = handleSubmit((data) => {
+    console.log(data)
+
     loginAccountMutation.mutate(data, {
       onSuccess: (data) => {
         setIsAuthenticated(true)
@@ -64,7 +66,7 @@ export default function Login() {
       <div className='container'>
         <div className='lg:grids-cols-5 grid grid-cols-1 py-12 lg:py-32'>
           <div className='mx-auto'>
-            <form onSubmit={onSubmit} className='rounded bg-white p-10 shadow-xl lg:min-w-[500px]' noValidate>
+            <form onSubmit={onSubmit} className='box-shadow-lg rounded bg-white p-10 lg:min-w-[500px]' noValidate>
               <div className='fs-32 text-center font-bold text-gray-600'>{t('login.title')}</div>
               <Input
                 className='mt-8'
