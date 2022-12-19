@@ -88,6 +88,7 @@ module.exports = {
           boxShadow: 'rgb(0 0 0 / 30%) 0px 0px 15px'
         }
       })
-    })
+    }),
+    require('@tailwindcss/line-clamp')
   ]
 }
